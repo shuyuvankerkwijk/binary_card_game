@@ -20,3 +20,9 @@ ultimately revealing the full message.
 ## Why is this project of interest to you?
 - I think it will challenge my coding abilities to create both the user interface and the backend system
 - I want to make messages for my friends!
+
+## User stories
+1. As a user, I want to be able to add a found character to my list of characters I've uncovered so far
+2. As a user, I want to be able to view all the characters I have found so far
+3. As a user, I want to be able to create new 'worlds' for someone to play with an arbitrary length message
+4. As a user, I want to be able to collect characters by running into them in the game
