@@ -63,7 +63,7 @@ public class CardGame {
         String result = "";
         for (int i = 0; i < currentCards.size(); i++) {
             Card card = currentCards.get(i);
-            result = result + "\n" + (i+1) + ". " + card.getCardInformation();
+            result = result + "\n" + (i + 1) + ". " + card.getCardInformation();
         }
         return result;
     }
