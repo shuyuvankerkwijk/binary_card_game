@@ -31,8 +31,8 @@ that was relevant to the course
 the game determine whether they are a 'pair' or not 
 2. As a user, I want to be able to add 'pairs' that I find 
 to a list of pairs that I have found so far 
-3. As a user, I want to be able to view all the pairs I have 
-found so far 
+3. As a user, I want to be able to add new cards to the game
+if I can't find a pair or am running out of cards
 4. As a user, I want to be able to see statistics on how many
 pairs I have found
 

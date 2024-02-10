@@ -43,7 +43,6 @@ public class Pair {
         } else { // Last case is operation.equals("NOR")
             result = (~(num1 | num2));
         }
-
         return (result != 0); // Convert to boolean
     }
 
