@@ -95,7 +95,7 @@ public class CardGame {
             Card card2 = pair.getCard2();
             String card2Info = card2.getCardInformation();
 
-            String pairResult = "Pair " + (i+1) + ":"
+            String pairResult = "Pair " + (i + 1) + ":"
                     + "(" + card1Info + ")"
                     + " & "
                     + "(" + card2Info + ")"
