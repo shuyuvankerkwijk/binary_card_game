@@ -5,9 +5,9 @@ import java.util.List;
 
 public class CardGame {
 
-    List<Card> currentCards;
-    List<Pair> validPairs;
-    List<Pair> allPairs;
+    private List<Card> currentCards;
+    private List<Pair> validPairs;
+    private List<Pair> allPairs;
 
     // EFFECTS: initializes currentCards with four cards, validPairsFound as empty
     public CardGame() {
@@ -15,6 +15,17 @@ public class CardGame {
         this.validPairs = new ArrayList<Pair>();
         this.allPairs = new ArrayList<Pair>();
         drawCards(4);
+    }
+
+    // EFFECTS: initializes CardGame with specified cards, for testing purpose
+    public CardGame(Card c1, Card c2, Card c3, Card c4) {
+        this.currentCards = new ArrayList<Card>();
+        this.validPairs = new ArrayList<Pair>();
+        this.allPairs = new ArrayList<Pair>();
+        this.currentCards.add(c1);
+        this.currentCards.add(c2);
+        this.currentCards.add(c3);
+        this.currentCards.add(c4);
     }
 
     // REQUIRES: c >= 0
@@ -68,15 +79,22 @@ public class CardGame {
         return result;
     }
 
+    public Card getCard(int i) {
+        return currentCards.get(i);
+    }
+
     public int getNumCurrentCards() {
+
         return this.currentCards.size();
     }
 
     public int getNumPairs() {
+
         return this.allPairs.size();
     }
 
     public int getNumValidPairs() {
+
         return this.validPairs.size();
     }
 }
