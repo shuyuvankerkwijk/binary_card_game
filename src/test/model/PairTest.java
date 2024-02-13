@@ -41,9 +41,9 @@ public class PairTest {
         pairValid6 = new Pair(cardOR1, cardOR0); // (1, OR) and (0, OR)
         pairInvalid1 = new Pair(cardAND1, cardOR0); // (1, AND) and (0, OR)
         pairInvalid2 = new Pair(cardAND1, cardNOR0); // (1, AND) and (0, NOR)
-        pairInvalid3 = new Pair(cardNAND1, cardAND1); // (1, NAND) and (1, AND)
-        pairInvalid4 = new Pair(cardOR0, cardOR0); // (0, OR) and (0, OR)
-        pairInvalid5 = new Pair(cardNOR0, cardOR1); // (0, NOR) and (1, OR)
+        pairInvalid3 = new Pair(cardNAND1, cardAND1); // (1, NAND) and (1, AND) F T
+        pairInvalid4 = new Pair(cardOR0, cardOR0); // (0, OR) and (0, OR) F F
+        pairInvalid5 = new Pair(cardOR1, cardNOR0); // (0, NOR) and (1, OR) T F
     }
 
     @Test
