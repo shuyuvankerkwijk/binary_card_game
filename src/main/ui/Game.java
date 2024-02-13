@@ -3,8 +3,18 @@ package ui;
 import java.util.Scanner;
 import model.CardGame;
 
-import javax.swing.*;
-
+/**
+ * Facilitates the gameplay of a card game through a console-based interface. This class handles
+ * user input, processes commands, and displays relevant information back to the user,
+ * acting as the controller of the card game experience.
+ *
+ * The game is initiated with 4 cards and offers the following moves to the user each 'turn':
+ * - Selecting a pair of cards to evaluate for validity according to the game's rules.
+ * - Adding 2 more cards to the game's current set to continue gameplay.
+ * - Showing statistics including the number of valid pairs selected and the player's accuracy.
+ * - Displaying a history of all pairs selected during the game session, indicating their validity.
+ * - Exiting the game.
+ */
 public class Game {
     private CardGame game;
     private Scanner input;

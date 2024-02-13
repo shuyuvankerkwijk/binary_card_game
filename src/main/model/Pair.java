@@ -1,5 +1,13 @@
 package model;
 
+/**
+ * Represents a pair of cards in a card game and determines the validity of the pair based on
+ * logical (bitwise) operations associated with each card. A pair is considered valid
+ * if both cards' operations, when applied to the numbers represented by the cards, result in a
+ * "true" outcome.The validity of a pair is determined at the time of creation
+ * Operations supported are "AND", "OR", "NAND", and "NOR", which are applied in a bitwise context
+ * to the numbers associated with each card.
+ */
 public class Pair {
     private final Card card1;
     private final Card card2;

@@ -1,8 +1,15 @@
 package model;
 
 import java.util.Random;
-import java.lang.Math;
 
+/**
+ * Represents a singular Card that has both a number and a string operation associated
+ * with it. The card information can be retrieved in a printable format and both of the card's
+ * characteristics can also be retrieved with getters.
+ * Operations supported are "AND", "OR", "NAND", and "NOR", with the note that a card could
+ * never have "AND" and the number 0, or "NOR" and the number 1, as this will never result
+ * in a valid pair, no matter the second card chosen.
+ */
 public class Card {
     private final int num;
     private final String operation;

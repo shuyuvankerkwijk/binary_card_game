@@ -3,6 +3,13 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents a card game that manages a collection of cards. The game is initialized with 4 cards
+ * and allows the user to add more cards as they run out. Pairs of cards can be selected from the
+ * current 'board' and evaluated for validity (see 'Pairs'). Valid pairs are tracked separately
+ * from all selected pairs, and cards forming valid pairs are removed from the board.
+ * Statistics and history of the game can be returned.
+ */
 public class CardGame {
 
     private List<Card> currentCards;
