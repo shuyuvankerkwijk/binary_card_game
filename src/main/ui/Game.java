@@ -41,6 +41,8 @@ public class Game {
             addMoreCards();
         } else if (command.equals("s")) {
             showStatistics();
+        } else if (command.equals("h")) {
+            showAllPairs();
         } else {
             System.out.println("Selection not valid...");
         }
@@ -104,6 +106,13 @@ public class Game {
         System.out.println("Accuracy: " + percentageAccuracy);
     }
 
+    // EFFECTS: prints information on all pairs selected so far and their cards/validity
+    private void showAllPairs() {
+        String allPairsInfo = game.getAllPairs();
+        System.out.println("HISTORY OF ALL PAIRS SELECTED");
+        System.out.println(allPairsInfo);
+    }
+
     // MODIFIES: this
     // EFFECTS: initializes game and scanner
     private void init() {
@@ -118,6 +127,7 @@ public class Game {
         System.out.println("\tp -> select pair");
         System.out.println("\tm -> add more cards");
         System.out.println("\ts -> show game statistics");
+        System.out.println("\th -> show history of all selected pairs");
         System.out.println("\te -> exit");
     }
 }

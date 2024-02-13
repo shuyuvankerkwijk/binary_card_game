@@ -79,6 +79,32 @@ public class CardGame {
         return result;
     }
 
+    // EFFECTS: returns a list of all pairs selected, with information on both
+    //          cards and whether the pair was valid
+    public String getAllPairs() {
+        String result = "";
+        for (int i = 0; i < allPairs.size(); i++) {
+            Pair pair = allPairs.get(i);
+            boolean pairValid = pair.getValid();
+            String pairValidString = "invalid";
+            if (pairValid == true) {
+                pairValidString = "valid";
+            }
+            Card card1 = pair.getCard1();
+            String card1Info = card1.getCardInformation();
+            Card card2 = pair.getCard2();
+            String card2Info = card2.getCardInformation();
+
+            String pairResult = "Pair " + (i+1) + ":"
+                    + "(" + card1Info + ")"
+                    + " & "
+                    + "(" + card2Info + ")"
+                    + " was " + pairValidString;
+            result = result + "\n" + pairResult;
+        }
+        return result;
+    }
+
     public Card getCard(int i) {
         return currentCards.get(i);
     }

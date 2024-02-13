@@ -30,13 +30,12 @@ that was relevant to the course
 1. As a user, I want to be able to select two cards and have
 the game determine whether they are a 'pair' or not 
 2. As a user, I want to be able to add 'pairs' that I find 
-to a list of pairs that I have found so far 
+to a list of pairs that I have found so far ***(add multiple
+X's to my Y)***
 3. As a user, I want to be able to add new cards to the game
 if I can't find a pair or am running out of cards
 4. As a user, I want to be able to see statistics on how many
-pairs I have found
-
-*(Potential extra user story if I have time)*
-5. As a user, I want to be able to increase the difficulty of
-the game by making it so I have to find 'triples' of cards
-instead of 'pairs'
+pairs I have found and how many are valid
+5. As a user, I want to be able to view a list of all pairs
+I have selected and whether they were valid or not ***(list all
+the X's in my Y)***
