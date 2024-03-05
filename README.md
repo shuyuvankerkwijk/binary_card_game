@@ -39,3 +39,7 @@ pairs I have found and how many are valid
 5. As a user, I want to be able to view a list of all pairs
 I have selected and whether they were valid or not ***(list all
 the X's in my Y)***
+6. As a user, when I select the quit option in the game I
+want to have the option to save my current game and statistics.
+7. As a user, when I start the game, I want to have the option
+to load an existing game from a file.
