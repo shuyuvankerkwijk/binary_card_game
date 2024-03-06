@@ -100,12 +100,12 @@ class CardGameTest {
     @Test
     public void testGetAllPairs() {
         String correctResult1 = "";
-        assertEquals(correctResult1, gameSpecific.getAllPairs());
+        assertEquals(correctResult1, gameSpecific.getAllPairsString());
         gameSpecific.selectPair(1, 2); // (OR, 0) and (NAND, 1) is valid pair
         gameSpecific.selectPair(0, 1); // (AND, 1) and (NOR, 0) is invalid pair
         String correctResult2 = "\n" +
                 "Pair 1:(0 // OR) & (1 // NAND) was valid\n" +
                 "Pair 2:(1 // AND) & (0 // NOR) was invalid";
-        assertEquals(correctResult2, gameSpecific.getAllPairs());
+        assertEquals(correctResult2, gameSpecific.getAllPairsString());
     }
 }

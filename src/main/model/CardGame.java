@@ -1,5 +1,9 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +14,7 @@ import java.util.List;
  * from all selected pairs, and cards forming valid pairs are removed from the board.
  * Statistics and history of the game can be returned.
  */
-public class CardGame {
+public class CardGame implements Writable {
 
     private List<Card> currentCards;
     private List<Pair> validPairs;
@@ -33,6 +37,13 @@ public class CardGame {
         this.currentCards.add(c2);
         this.currentCards.add(c3);
         this.currentCards.add(c4);
+    }
+
+    // EFFECTS: initializes CardGame with specified currentCards, validPairs, allPairs
+    public CardGame(List<Card> cards, List<Pair> validPairs, List<Pair> allPairs) {
+        this.currentCards = cards;
+        this.validPairs = validPairs;
+        this.allPairs = allPairs;
     }
 
     // REQUIRES: c >= 0
@@ -88,7 +99,7 @@ public class CardGame {
 
     // EFFECTS: returns a list of all pairs selected, with information on both
     //          cards and whether the pair was valid
-    public String getAllPairs() {
+    public String getAllPairsString() {
         String result = "";
         for (int i = 0; i < allPairs.size(); i++) {
             Pair pair = allPairs.get(i);
@@ -113,6 +124,7 @@ public class CardGame {
     }
 
     public Card getCard(int i) {
+
         return currentCards.get(i);
     }
 
@@ -129,5 +141,62 @@ public class CardGame {
     public int getNumValidPairs() {
 
         return this.validPairs.size();
+    }
+
+    public List<Card> getCards() {
+
+        return this.currentCards;
+    }
+
+    public List<Pair> getValidPairs() {
+
+        return this.validPairs;
+    }
+
+    public List<Pair> getAllPairs() {
+
+        return this.allPairs;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("cards", cardsToJson());
+        json.put("validPairs", validPairsToJson());
+        json.put("allPairs", allPairsToJson());
+        return json;
+    }
+
+    // EFFECTS: returns currentCards as a JSON array
+    private JSONArray cardsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Card c : this.currentCards) {
+            jsonArray.put(c.toJson());
+        }
+
+        return jsonArray;
+    }
+
+    // EFFECTS: returns validPairs as a JSON array
+    private JSONArray validPairsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Pair p : this.validPairs) {
+            jsonArray.put(p.toJson());
+        }
+
+        return jsonArray;
+    }
+
+    // EFFECTS: returns allPairs as a JSON array
+    private JSONArray allPairsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Pair p : this.allPairs) {
+            jsonArray.put(p.toJson());
+        }
+
+        return jsonArray;
     }
 }

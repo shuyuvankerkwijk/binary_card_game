@@ -1,0 +1,66 @@
+{
+  "validPairs": [
+    {
+      "card1": {
+        "num": 1,
+        "operation": "NAND"
+      },
+      "card2": {
+        "num": 0,
+        "operation": "OR"
+      }
+    },
+    {
+      "card1": {
+        "num": 1,
+        "operation": "NAND"
+      },
+      "card2": {
+        "num": 0,
+        "operation": "NAND"
+      }
+    }
+  ],
+  "cards": [
+    {
+      "num": 1,
+      "operation": "OR"
+    },
+    {
+      "num": 1,
+      "operation": "NAND"
+    }
+  ],
+  "allPairs": [
+    {
+      "card1": {
+        "num": 1,
+        "operation": "NAND"
+      },
+      "card2": {
+        "num": 0,
+        "operation": "OR"
+      }
+    },
+    {
+      "card1": {
+        "num": 1,
+        "operation": "OR"
+      },
+      "card2": {
+        "num": 1,
+        "operation": "NAND"
+      }
+    },
+    {
+      "card1": {
+        "num": 1,
+        "operation": "NAND"
+      },
+      "card2": {
+        "num": 0,
+        "operation": "NAND"
+      }
+    }
+  ]
+}

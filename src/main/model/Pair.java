@@ -1,5 +1,8 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 /**
  * Represents a pair of cards in a card game and determines the validity of the pair based on
  * logical (bitwise) operations associated with each card. A pair is considered valid
@@ -8,7 +11,7 @@ package model;
  * Operations supported are "AND", "OR", "NAND", and "NOR", which are applied in a bitwise context
  * to the numbers associated with each card.
  */
-public class Pair {
+public class Pair implements Writable {
     private final Card card1;
     private final Card card2;
     private final boolean valid;
@@ -65,4 +68,13 @@ public class Pair {
     public Card getCard2() {
         return this.card2;
     }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("card1", this.card1.toJson());
+        json.put("card2", this.card2.toJson());
+        return json;
+    }
 }
+

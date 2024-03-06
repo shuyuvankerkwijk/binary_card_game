@@ -1,5 +1,8 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.Random;
 
 /**
@@ -10,7 +13,7 @@ import java.util.Random;
  * never have "AND" and the number 0, or "NOR" and the number 1, as this will never result
  * in a valid pair, no matter the second card chosen.
  */
-public class Card {
+public class Card implements Writable {
     private final int num;
     private final String operation;
 
@@ -52,4 +55,11 @@ public class Card {
         return this.operation;
     }
 
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("num", num);
+        json.put("operation", operation);
+        return json;
+    }
 }
