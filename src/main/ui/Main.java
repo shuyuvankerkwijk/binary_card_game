@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 
 /**
  * Main class
+ * Launches Game UI
  */
 // credit: GitHub "JsonSerializationDemo"
 public class Main {

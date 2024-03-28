@@ -94,7 +94,7 @@ class CardGameTest {
                 "2. 0 // OR\n" +
                 "3. 1 // NAND\n" +
                 "4. 0 // NOR";
-        assertEquals(correctResult, gameSpecific.getCurrentCards());
+        assertEquals(correctResult, gameSpecific.getCurrentCardsString());
     }
 
     @Test

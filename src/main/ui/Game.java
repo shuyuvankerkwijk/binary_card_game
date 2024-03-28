@@ -33,49 +33,54 @@ public class Game {
         input.useDelimiter("\n");
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
-        runGame();
+//        runGame();
     }
 
-    // MODIFIES: this
-    // EFFECTS: processes user input in loop until "exit" command is processed
-    private void runGame() {
-        String command = null;
-        while (true) {
-            System.out.println(game.getCurrentCards());
-            displayMenuOptions();
-            command = input.next();
-            command = command.toLowerCase();
-            if (command.equals("e")) {
-                break;
-            } else {
-                processCommand(command);
-            }
-        }
-        System.out.println("\nThanks for playing! Hope you learned something!");
+    // EFFECTS: Getter that returns Game instance
+    public CardGame getGame() {
+        return game;
     }
 
-    // EFFECTS: processes command and determines next step based on input
-    private void processCommand(String command) {
-        if (command.equals("p")) {
-            processPairSelection();
-        } else if (command.equals("m")) {
-            addMoreCards();
-        } else if (command.equals("g")) {
-            showStatistics();
-        } else if (command.equals("h")) {
-            showAllPairs();
-        } else if (command.equals("s")) {
-            saveGame();
-        } else if (command.equals("l")) {
-            loadGame();
-        } else {
-            System.out.println("Selection not valid...");
-        }
-    }
+//    // MODIFIES: this
+//    // EFFECTS: processes user input in loop until "exit" command is processed
+//    private void runGame() {
+//        String command = null;
+//        while (true) {
+//            System.out.println(game.getCurrentCards());
+//            displayMenuOptions();
+//            command = input.next();
+//            command = command.toLowerCase();
+//            if (command.equals("e")) {
+//                break;
+//            } else {
+//                processCommand(command);
+//            }
+//        }
+//        System.out.println("\nThanks for playing! Hope you learned something!");
+//    }
+
+//    // EFFECTS: processes command and determines next step based on input
+//    private void processCommand(String command) {
+//        if (command.equals("p")) {
+//            processPairSelection();
+//        } else if (command.equals("m")) {
+//            addMoreCards();
+//        } else if (command.equals("g")) {
+//            showStatistics();
+//        } else if (command.equals("h")) {
+//            showAllPairs();
+//        } else if (command.equals("s")) {
+//            saveGame();
+//        } else if (command.equals("l")) {
+//            loadGame();
+//        } else {
+//            System.out.println("Selection not valid...");
+//        }
+//    }
 
     // credit: GitHub "JsonSerializationDemo"
     // EFFECTS: saves the workroom to file
-    private void saveGame() {
+    public void saveGame() {
         try {
             this.jsonWriter.open();
             this.jsonWriter.write(this.game);
@@ -89,7 +94,7 @@ public class Game {
     // credit: GitHub "JsonSerializationDemo"
     // MODIFIES: this
     // EFFECTS: loads workroom from file
-    private void loadGame() {
+    public void loadGame() {
         try {
             this.game = jsonReader.read();
             System.out.println("Loaded game of " + this.game.getNumCurrentCards() + " from " + JSON_STORE);
@@ -98,80 +103,81 @@ public class Game {
         }
     }
 
-    // EFFECTS: processes user input regarding card selection and handles errors
-    //          (non-integer or non-valid values)
-    private void processPairSelection() {
-        String firstInput = null;
-        String secondInput = null;
-        System.out.println("\nChoose first card by typing its number");
-        firstInput = input.next();
-        System.out.println("\nChoose second card by typing its number");
-        secondInput = input.next();
-        try {
-            // Checking to make sure inputs are integers
-            int c1 = Integer.parseInt(firstInput);
-            int c2 = Integer.parseInt(secondInput);
-
-            // Checking to make inputs corresponds to card indices
-            if (c1 > 0 && c1 <= game.getNumCurrentCards() && c2 > 0 && c2 <= game.getNumCurrentCards()) {
-                System.out.println("Card numbers entered: " + c1 + " and " + c2);
-                selectPair(c1 - 1, c2 - 1);
-            } else {
-                System.out.println("Error: Invalid cards selected. Please try again.");
-                processPairSelection();
-            }
-        } catch (NumberFormatException e) {
-            System.out.println("Error: Invalid input entered. Please try again and enter integers only.");
-            processPairSelection();
-        }
-    }
+//    // EFFECTS: processes user input regarding card selection and handles errors
+//    //          (non-integer or non-valid values)
+//    private void processPairSelection() {
+//        String firstInput = null;
+//        String secondInput = null;
+//        System.out.println("\nChoose first card by typing its number");
+//        firstInput = input.next();
+//        System.out.println("\nChoose second card by typing its number");
+//        secondInput = input.next();
+//        try {
+//            // Checking to make sure inputs are integers
+//            int c1 = Integer.parseInt(firstInput);
+//            int c2 = Integer.parseInt(secondInput);
+//
+//            // Checking to make inputs corresponds to card indices
+//            if (c1 > 0 && c1 <= game.getNumCurrentCards() && c2 > 0 && c2 <= game.getNumCurrentCards()) {
+//                System.out.println("Card numbers entered: " + c1 + " and " + c2);
+//                selectPair(c1 - 1, c2 - 1);
+//            } else {
+//                System.out.println("Error: Invalid cards selected. Please try again.");
+//                processPairSelection();
+//            }
+//        } catch (NumberFormatException e) {
+//            System.out.println("Error: Invalid input entered. Please try again and enter integers only.");
+//            processPairSelection();
+//        }
+//    }
 
     // EFFECTS: selects given cards and prints result
-    private void selectPair(int c1, int c2) {
+    public Boolean selectPair(int c1, int c2) {
         Boolean valid = game.selectPair(c1, c2);
-        if (valid) {
-            System.out.println((c1 + 1) + " and " + (c2 + 1) + " are a pair!");
-        } else {
-            System.out.println((c1 + 1) + " and " + (c2 + 1) + " are not a pair... Try again");
-        }
+        return valid;
+//        if (valid) {
+//            System.out.println((c1 + 1) + " and " + (c2 + 1) + " are a pair!");
+//        } else {
+//            System.out.println((c1 + 1) + " and " + (c2 + 1) + " are not a pair... Try again");
+//        }
     }
 
     // EFFECTS: adds two more cards to game
-    private void addMoreCards() {
+    public void addMoreCards() {
         game.drawCards(2);
-        System.out.println("Added two more cards!");
+        System.out.println("Added four more cards!");
     }
 
     // EFFECTS: prints information on the number of valid selected pairs and accuracy
-    private void showStatistics() {
+    public String getStatistics() {
         int numValidPairs = game.getNumValidPairs();
         int numTotalPairs = game.getNumPairs();
         float percentageAccuracy = 0;
         if (numTotalPairs != 0) {
             percentageAccuracy = ((float) numValidPairs / numTotalPairs) * 100;
         }
-        System.out.println("PLAYER STATISTICS");
-        System.out.println("Number of valid pairs: " + numValidPairs);
-        System.out.println("Number of wrong guesses: " + (numTotalPairs - numValidPairs));
-        System.out.println("Accuracy: " + percentageAccuracy + "%");
+        String output = "PLAYER STATISTICS" + "\nNumber of valid pairs: " + numValidPairs
+                + "\nNumber of wrong guesses: " + (numTotalPairs - numValidPairs)
+                + "\nAccuracy: " + percentageAccuracy + "%";
+        return output;
     }
 
-    // EFFECTS: prints information on all pairs selected so far and their cards/validity
-    private void showAllPairs() {
-        String allPairsInfo = game.getAllPairsString();
-        System.out.println("HISTORY OF ALL PAIRS SELECTED");
-        System.out.println(allPairsInfo);
-    }
+//    // EFFECTS: prints information on all pairs selected so far and their cards/validity
+//    private void showAllPairs() {
+//        String allPairsInfo = game.getAllPairsString();
+//        System.out.println("HISTORY OF ALL PAIRS SELECTED");
+//        System.out.println(allPairsInfo);
+//    }
 
-    // EFFECTS: prints menu of options for user
-    public void displayMenuOptions() {
-        System.out.println("\nSelect from:");
-        System.out.println("\tp -> select pair");
-        System.out.println("\tm -> add more cards");
-        System.out.println("\tg -> show game statistics");
-        System.out.println("\th -> show history of all selected pairs");
-        System.out.println("\ts -> save game to file");
-        System.out.println("\tl -> load game from file");
-        System.out.println("\te -> exit");
-    }
+//    // EFFECTS: prints menu of options for user
+//    public void displayMenuOptions() {
+//        System.out.println("\nSelect from:");
+//        System.out.println("\tp -> select pair");
+//        System.out.println("\tm -> add more cards");
+//        System.out.println("\tg -> show game statistics");
+//        System.out.println("\th -> show history of all selected pairs");
+//        System.out.println("\ts -> save game to file");
+//        System.out.println("\tl -> load game from file");
+//        System.out.println("\te -> exit");
+//    }
 }

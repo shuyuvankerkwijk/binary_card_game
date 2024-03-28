@@ -43,3 +43,18 @@ the X's in my Y)***
 want to have the option to save my current game and statistics.
 7. As a user, when I start the game, I want to have the option
 to load an existing game from a file.
+
+## Instructions for Grader
+- You can generate the first required action related to the 
+user story "adding multiple Xs to a Y" by clicking "Add Cards" 
+button.
+- You can generate the second required action related to the
+user story "adding multiple Xs to a Y" by choosing two cards
+and clicking "Choose Cards". The system will let you know if
+the pair is valid, and will add your cards to the right panel
+if the pair is valid. 
+- You can locate my visual component by running 'GameUI'
+- You can save the state of my application by clicking 
+"Save Game"
+- You can reload the state of my application by clicking
+"Load Game"

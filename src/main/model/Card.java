@@ -55,6 +55,7 @@ public class Card implements Writable {
         return this.operation;
     }
 
+    // EFFECTS: Writes Card information as JSON object
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

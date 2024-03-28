@@ -12,6 +12,7 @@ import persistence.Writable;
  * to the numbers associated with each card.
  */
 public class Pair implements Writable {
+
     private final Card card1;
     private final Card card2;
     private final boolean valid;
@@ -69,6 +70,7 @@ public class Pair implements Writable {
         return this.card2;
     }
 
+    // EFFECTS: Writes Pair information as JSON Object
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

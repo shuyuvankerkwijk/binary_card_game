@@ -88,13 +88,18 @@ public class CardGame implements Writable {
     }
 
     // EFFECTS: returns current card information in string
-    public String getCurrentCards() {
+    public String getCurrentCardsString() {
         String result = "";
         for (int i = 0; i < currentCards.size(); i++) {
             Card card = currentCards.get(i);
             result = result + "\n" + (i + 1) + ". " + card.getCardInformation();
         }
         return result;
+    }
+
+    // EFFECTS: returns current card information
+    public List<Card> getCurrentCards() {
+        return this.currentCards;
     }
 
     // EFFECTS: returns a list of all pairs selected, with information on both
@@ -124,40 +129,34 @@ public class CardGame implements Writable {
     }
 
     public Card getCard(int i) {
-
         return currentCards.get(i);
     }
 
     public int getNumCurrentCards() {
-
         return this.currentCards.size();
     }
 
     public int getNumPairs() {
-
         return this.allPairs.size();
     }
 
     public int getNumValidPairs() {
-
         return this.validPairs.size();
     }
 
     public List<Card> getCards() {
-
         return this.currentCards;
     }
 
     public List<Pair> getValidPairs() {
-
         return this.validPairs;
     }
 
     public List<Pair> getAllPairs() {
-
         return this.allPairs;
     }
 
+    // EFFECTS: returns Game as a JSON object
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -174,7 +173,6 @@ public class CardGame implements Writable {
         for (Card c : this.currentCards) {
             jsonArray.put(c.toJson());
         }
-
         return jsonArray;
     }
 
@@ -185,7 +183,6 @@ public class CardGame implements Writable {
         for (Pair p : this.validPairs) {
             jsonArray.put(p.toJson());
         }
-
         return jsonArray;
     }
 
@@ -196,7 +193,6 @@ public class CardGame implements Writable {
         for (Pair p : this.allPairs) {
             jsonArray.put(p.toJson());
         }
-
         return jsonArray;
     }
 }
