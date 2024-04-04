@@ -89,6 +89,8 @@ public class CardGame implements Writable {
             this.currentCards.remove(c1);
             this.currentCards.remove(c2);
         }
+        EventLog.getInstance().logEvent(new Event("Cards " + c1 + " and " + c2 + " were"
+                + " removed from the board"));
     }
 
     // EFFECTS: returns current card information in string
