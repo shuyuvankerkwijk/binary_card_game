@@ -83,8 +83,9 @@ Tue Apr 02 23:10:17 PDT 2024
 I would refactor GameUI and Game into one class. Currently,
 GameUI calls Game for methods such as 'DrawCards', 'SelectPair',
 etc... but Game itself calls on CardGame for a lot of these
-functions. The reason it is set up this way is because for
-Phase 2 I was using Game as my UI class to control all actions,
+functions. They are very coupled. The reason it is set up this 
+way is because for Phase 2 I was using Game as my 
+UI class to control all actions,
 but for Phase 3, instead of changing Game to also control the 
 GUI, I ended up making a new GameUI class. However, since I
 want to maintain SRP, I would split up some of the functions
