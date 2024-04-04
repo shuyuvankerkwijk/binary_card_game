@@ -98,3 +98,10 @@ refactoring changes would ensure the purpose of GameUI
 is kept as being the starting point for the game and for 
 organizing the highest level of user-interactions.
 
+I also realized that since I actually only wanted one
+instance of Game, and that my GameUI was passing instances
+of Game through to PairsDisplayPanel and GameBoardUI, that
+if I did not make the refactoring change mentioned above,
+I also could have chosen to use a Singleton design pattern
+for Game, where instances of the game could be retrieved
+instead of passing the entire object. 
