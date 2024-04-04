@@ -97,3 +97,16 @@ of the selected Cards, the options panel, etc... These
 refactoring changes would ensure the purpose of GameUI 
 is kept as being the starting point for the game and for 
 organizing the highest level of user-interactions.
+
+I also realized that since I actually only wanted one
+instance of Game, and that my GameUI was passing instances
+of Game through to PairsDisplayPanel and GameBoardUI, that
+if I did not make the refactoring change mentioned above,
+I also could have chosen to use a Singleton design pattern
+for Game, where instances of the game could be passed around.
+This is not necessarily an improvement at the moment, since 
+Game is not passed around to an excessive point, however,
+should the GUI become more complex with more features that
+needed to access Game, this could be a useful change to 
+ensure they all point to the same object and hide the ability
+to create a second or third 'Game'.
