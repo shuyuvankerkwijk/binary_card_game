@@ -58,3 +58,43 @@ if the pair is valid.
 "Save Game"
 - You can reload the state of my application by clicking
 "Load Game"
+
+## Phase 4: Task 2
+Representative sample of events:
+
+Tue Apr 02 23:09:54 PDT 2024
+New game created.
+Tue Apr 02 23:09:54 PDT 2024
+4 new cards added to the game board.
+Tue Apr 02 23:09:57 PDT 2024
+2 new cards added to the game board.
+Tue Apr 02 23:10:01 PDT 2024
+Cards 2 and 1 were selected on the board
+Tue Apr 02 23:10:03 PDT 2024
+2 new cards added to the game board.
+Tue Apr 02 23:10:08 PDT 2024
+Cards 5 and 3 were selected on the board
+Tue Apr 02 23:10:15 PDT 2024
+Cards 2 and 0 were selected on the board
+Tue Apr 02 23:10:17 PDT 2024
+2 new cards added to the game board.
+
+## Phase 4: Task 3
+I would refactor GameUI and Game into one class. Currently,
+GameUI calls Game for methods such as 'DrawCards', 'SelectPair',
+etc... but Game itself calls on CardGame for a lot of these
+functions. The reason it is set up this way is because for
+Phase 2 I was using Game as my UI class to control all actions,
+but for Phase 3, instead of changing Game to also control the 
+GUI, I ended up making a new GameUI class. However, since I
+want to maintain SRP, I would split up some of the functions
+of Game/GameUI into other classes -- for example, I would allow
+GameBoardUI to handle the board-related functions and 
+PairsDisplayPanel to handle the pairs-related functions. I 
+would also remove some additional functionality currently
+in the Game/GameUI into other classes, such as keeping track
+of the selected Cards, the options panel, etc... These 
+refactoring changes would ensure the purpose of GameUI 
+is kept as being the starting point for the game and for 
+organizing the highest level of user-interactions.
+

@@ -25,6 +25,7 @@ public class CardGame implements Writable {
         this.currentCards = new ArrayList<Card>();
         this.validPairs = new ArrayList<Pair>();
         this.allPairs = new ArrayList<Pair>();
+        EventLog.getInstance().logEvent(new Event("New game created."));
         drawCards(4);
     }
 
@@ -53,6 +54,7 @@ public class CardGame implements Writable {
         for (int i = 0; i < c; i++) {
             this.currentCards.add(new Card());
         }
+        EventLog.getInstance().logEvent(new Event(c + " new cards added to the game board."));
     }
 
     // REQUIRES: 0 <= c1, c2 <= currentCards.size()-1
@@ -62,6 +64,8 @@ public class CardGame implements Writable {
     public Boolean selectPair(int c1, int c2) {
         Card card1 = currentCards.get(c1);
         Card card2 = currentCards.get(c2);
+        EventLog.getInstance().logEvent(new Event("Cards " + c1 + " and " + c2 + " were"
+                + " selected on the board"));
         Pair pair = new Pair(card1, card2);
         this.allPairs.add(pair);
         if (pair.getValid()) {
@@ -110,7 +114,7 @@ public class CardGame implements Writable {
             Pair pair = allPairs.get(i);
             boolean pairValid = pair.getValid();
             String pairValidString = "invalid";
-            if (pairValid == true) {
+            if (pairValid) {
                 pairValidString = "valid";
             }
             Card card1 = pair.getCard1();

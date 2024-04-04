@@ -58,14 +58,17 @@ public class Pair implements Writable {
         return result; // Convert to boolean
     }
 
+    // EFFECTS: Getter operation
     public boolean getValid() {
         return this.valid;
     }
 
+    // EFFECTS: Getter operation
     public Card getCard1() {
         return this.card1;
     }
 
+    // EFFECTS: Getter operation
     public Card getCard2() {
         return this.card2;
     }

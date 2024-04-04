@@ -12,7 +12,6 @@ import java.util.ArrayList;
  * Represents a display panel for showing all valid card pairs found in the Binary Operations Card Game.
  * This panel is part of the game's GUI, designed to visually present the pairs of cards that have been
  * successfully matched according to the game's rules.
- *
  * The class manages a list of valid pairs and updates its display whenever the game state changes. It
  * dynamically adjusts its size based on the number of pairs to be displayed and draws the card images
  * on the panel.
@@ -42,7 +41,7 @@ public class PairsDisplayPanel extends JPanel {
     // MODIFIES: this
     // EFFECTS: Updates the panel with the game's current valid pairs
     public void update() {
-        validPairs = game.getGame().getValidPairs();
+        validPairs = game.getCardGame().getValidPairs();
         repaint();
     }
 

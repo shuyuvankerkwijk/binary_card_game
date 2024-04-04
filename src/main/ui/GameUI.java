@@ -35,14 +35,18 @@ public class GameUI extends JFrame {
     private PairsDisplayPanel pairsDisplayPanel;
     private JScrollPane scrollPane;
 
+    // EFFECTS: Creates a new instance of GameUI
     public static void main(String[] args) {
         new GameUI();
     }
 
     // MODIFIES: this
-    // EFFECTS: Creates a new instance of Game and calls initializeGUI()
+    // EFFECTS: Creates a new instance of Game and calls initializeGUI().
+    //          Adds a custom WindowListener that will print all log events
+    //          Upon the window being closed
     public GameUI() {
         super("Binary Operations Card Game");
+        addWindowListener(new WindowListener());
         try {
             game = new Game();
         } catch (FileNotFoundException e) {

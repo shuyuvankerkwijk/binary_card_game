@@ -19,7 +19,6 @@ public class GameBoardUI extends JPanel {
 
     private Game game;
     private GameUI gameUI;
-    private JButton[] cardButtons;
 
     // EFFECTS: Initializes the game board UI with a specified layout and background color. It sets
     //          up references to the game logic and the main game UI.
@@ -43,7 +42,7 @@ public class GameBoardUI extends JPanel {
     public void update() {
         removeAll();
 
-        int numCards = game.getGame().getNumCurrentCards();
+        int numCards = game.getCardGame().getNumCurrentCards();
 
         if (numCards > 8) {
             setLayout(new GridLayout(4, (int) Math.ceil((float) numCards / 4.0)));
@@ -51,7 +50,7 @@ public class GameBoardUI extends JPanel {
             setLayout(new GridLayout(2, (numCards / 2)));
         }
 
-        List<Card> currentCards = game.getGame().getCurrentCards();
+        List<Card> currentCards = game.getCardGame().getCurrentCards();
         int index = 0;
         for (Card card : currentCards) {
             ImageIcon cardImage = getCardImage(card);
