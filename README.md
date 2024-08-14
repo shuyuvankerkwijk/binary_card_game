@@ -1,4 +1,4 @@
-# Shuyu's personal project
+# Shuyu's personal project -- made during the CPSC210 course at UBC!
 **Jan 30, 2024**
 
 ## Application purpose:
